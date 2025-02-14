@@ -1,0 +1,232 @@
+/* Existing styles... */
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-up {
+    animation: slideInFromBottom 0.8s ease-out;
+}
+
+/* Hero Section Animations */
+header h1 {
+    animation: fadeIn 1.2s ease-out;
+}
+
+header p {
+    animation: slideInFromBottom 1s ease-out 0.3s backwards;
+}
+
+header button {
+    animation: slideInFromBottom 1s ease-out 0.6s backwards;
+}
+
+/* CTA Button Hover Animation */
+.cta-button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
+/* Form Input Animations */
+.form-input {
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Hover Effects */
+.country-card {
+    transition: all 0.3s ease;
+}
+
+.country-card:hover {
+    transform: translateY(-10px);
+}
+
+.country-card img {
+    transition: all 0.5s ease;
+}
+
+.country-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Pulse Animation for Important Elements */
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Scroll Reveal Animation */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading State Animation */
+.loading {
+    position: relative;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Mobile Responsive Animations */
+@media (max-width: 768px) {
+    .animate-slide-up {
+        animation-duration: 0.6s;
+    }
+    
+    .country-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Benefit card animations */
+.benefit-card {
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Icon animations */
+.fas {
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover .fas {
+    transform: scale(1.2);
+    color: #2563EB; /* blue-600 */
+}
+
+/* Admission Process Timeline Styles */
+.admission-timeline {
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .admission-timeline::before {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #2563EB;
+        opacity: 0.3;
+    }
+}
+
+/* Number circle animation */
+.admission-timeline .flex-none {
+    transition: all 0.3s ease;
+}
+
+.admission-timeline .flex:hover .flex-none {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
+}
+
+/* Content fade in animation */
+.admission-timeline .reveal-on-scroll {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.6s ease;
+}
+
+.admission-timeline .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Step hover effect */
+.admission-timeline .flex {
+    transition: all 0.3s ease;
+}
+
+.admission-timeline .flex:hover {
+    transform: translateX(10px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .admission-timeline .flex:hover {
+        transform: translateY(5px);
+    }
+}
